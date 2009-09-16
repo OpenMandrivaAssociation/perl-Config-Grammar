@@ -2,9 +2,12 @@
 %define upstream_version 1.10
 
 Name:       perl-%{upstream_name}
+%if %mdkversion >= 201000
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 1
-
+%else
+Version:    %{upstream_version}
+%endif
+Release:    %mkrel 2
 Summary:    A grammar-based, user-friendly config parser
 License:    GPL+ or Artistic
 Group:      Development/Perl
