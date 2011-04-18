@@ -7,7 +7,7 @@ Version:    %perl_convert_version %{upstream_version}
 %else
 Version:    %{upstream_version}
 %endif
-Release:    %mkrel 2
+Release:    %mkrel 3
 Summary:    A grammar-based, user-friendly config parser
 License:    GPL+ or Artistic
 Group:      Development/Perl
