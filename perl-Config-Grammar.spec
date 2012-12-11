@@ -1,21 +1,17 @@
 %define upstream_name    Config-Grammar
 %define upstream_version 1.10
 
-Name:       perl-%{upstream_name}
-%if %mdkversion >= 201000
-Version:    %perl_convert_version %{upstream_version}
-%else
-Version:    %{upstream_version}
-%endif
-Release:    %mkrel 3
-Summary:    A grammar-based, user-friendly config parser
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/Config/%{upstream_name}-%{upstream_version}.tar.gz
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	4
+Summary:	A grammar-based, user-friendly config parser
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Config/%{upstream_name}-%{upstream_version}.tar.gz
 
-BuildArch: noarch
-BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}
+BuildRequires:	perl-devel
+BuildArch:	noarch
 
 %description
 Config::Grammar is a module to parse configuration files. The configuration
@@ -48,21 +44,39 @@ Grammar Definition
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
 make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc Changes README
 %{_mandir}/man3/*
-%perl_vendorlib/*
+%{perl_vendorlib}/*
+
+
+%changelog
+* Mon Apr 18 2011 Funda Wang <fwang@mandriva.org> 1.100.0-3mdv2011.0
++ Revision: 654898
+- rebuild for updated spec-helper
+
+* Wed Sep 16 2009 Guillaume Rousse <guillomovitch@mandriva.org> 1.100.0-2mdv2011.0
++ Revision: 443528
+- backportability fix
+
+* Tue Aug 04 2009 Jérôme Quelin <jquelin@mandriva.org> 1.100.0-1mdv2010.0
++ Revision: 409026
+- rebuild using %%perl_convert_version
+- rebuild
+
+* Mon May 04 2009 Guillaume Rousse <guillomovitch@mandriva.org> 1.10-1mdv2010.0
++ Revision: 371910
+- import perl-Config-Grammar
+
+
+* Mon May 04 2009 cpan2dist 1.10-1mdv
+- initial mdv release, generated with cpan2dist
