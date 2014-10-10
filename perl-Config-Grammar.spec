@@ -3,7 +3,7 @@
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	4
+Release:	5
 Summary:	A grammar-based, user-friendly config parser
 License:	GPL+ or Artistic
 Group:		Development/Perl
