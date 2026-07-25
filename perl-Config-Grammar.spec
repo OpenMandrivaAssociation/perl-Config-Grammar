@@ -1,14 +1,14 @@
 %define upstream_name    Config-Grammar
-%define upstream_version 1.10
+%define upstream_version 1.13
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	6
+Version:	%{upstream_version}
+Release:	1
 Summary:	A grammar-based, user-friendly config parser
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Config/%{upstream_name}-%{upstream_version}.tar.gz
+Url:		https://github.com/schweikert/Config-Grammar
+Source0:	https://cpan.metacpan.org/authors/id/D/DS/DSCHWEI/Config-Grammar-%{upstream_version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
