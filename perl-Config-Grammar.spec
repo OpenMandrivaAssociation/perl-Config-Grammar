@@ -1,14 +1,12 @@
 %define upstream_name    Config-Grammar
-%define upstream_version 1.13
-
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	1
+Version:	1.13
+Release:	2
 Summary:	A grammar-based, user-friendly config parser
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		https://github.com/schweikert/Config-Grammar
-Source0:	https://cpan.metacpan.org/authors/id/D/DS/DSCHWEI/Config-Grammar-%{upstream_version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/D/DS/DSCHWEI/Config-Grammar-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -42,7 +40,7 @@ Grammar Definition
     given as parameter to 'new' contains the "root section".
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
@@ -71,8 +69,7 @@ make test
 
 * Tue Aug 04 2009 Jérôme Quelin <jquelin@mandriva.org> 1.100.0-1mdv2010.0
 + Revision: 409026
-- rebuild using %%perl_convert_version
-- rebuild
+- rebuild using %1.13 rebuild
 
 * Mon May 04 2009 Guillaume Rousse <guillomovitch@mandriva.org> 1.10-1mdv2010.0
 + Revision: 371910
